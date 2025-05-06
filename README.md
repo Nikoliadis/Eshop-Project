@@ -55,6 +55,7 @@ git clone https://github.com/Nikoliadis/Eshop-Project.git
 open terminal
 python -m venv venv
 source venv/bin/activate  # ή venv\Scripts\activate στα Windows
+Open PowerShell (as Administrator). Run: powershell Type: Get-ExecutionPolicy And Then Type: Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 pip install -r requirements.txt
 python run.py
 ```
