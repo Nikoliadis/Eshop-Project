@@ -1,27 +1,28 @@
 # 🔧 Project Name – Company Website / eShop
 
-## 📌 Περιγραφή  
+## 📌 Περιγραφή
+
 Πρόκειται για ένα πλήρως λειτουργικό δυναμικό website με δυνατότητα παρουσίασης υπηρεσιών, portfolio, επικοινωνίας και (προαιρετικά) ηλεκτρονικών πωλήσεων. Το project αναπτύσσεται με Flask, SQLAlchemy και HTML/CSS/Bootstrap.
 
 ---
 
 ## 🧠 Ομάδα Ανάπτυξης
 
-| Ρόλος              | Όνομα   | Περιγραφή εργασιών                                      |
-|--------------------|---------|----------------------------------------------------------|
-| 👨‍💻 Backend Developer | Νίκος   | Flask app, routing, views, business logic, APIs         |
-| 🧠 Database Manager  | Νώντας  | Σχεδιασμός schema, δημιουργία μοντέλων, queries         |
-| 🎨 Frontend & Design | Λόρας   | HTML/CSS, Bootstrap, responsive design, UI/UX templates |
+| Ρόλος                | Όνομα  | Περιγραφή εργασιών                                      |
+| -------------------- | ------ | ------------------------------------------------------- |
+| 👨‍💻 Backend Developer | Νίκος  | Flask app, routing, views, business logic, APIs         |
+| 🧠 Database Manager  | Νώντας | Σχεδιασμός schema, δημιουργία μοντέλων, queries         |
+| 🎨 Frontend & Design | Λόρας  | HTML/CSS, Bootstrap, responsive design, UI/UX templates |
 
 ---
 
 ## 🚀 Τεχνολογίες
 
-- Python 3.x  
-- Flask  
-- SQLAlchemy  
-- Jinja2 Templates  
-- Bootstrap 5  
+- Python 3.x
+- Flask
+- SQLAlchemy
+- Jinja2 Templates
+- Bootstrap 5
 - SQLite / PostgreSQL (ανάλογα με την εγκατάσταση)
 
 ---
@@ -59,7 +60,7 @@ venv\Scripts\activate  # ή source venv/bin/activate σε Mac/Linux
 # Αν είσαι σε PowerShell και έχει θέμα, τρέξε:
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
-pip install -r requirements.txt
+pip flask flask_sqlalchemy flask_login flask_migrate
 python run.py
 ```
 
@@ -91,6 +92,6 @@ git push -u origin main
 
 ## 📩 Επικοινωνία Ομάδας
 
-- Email Νίκου: nikos@example.com  
-- Email Νώντα: nontas@example.com  
-- Email Λόρα: loras@example.com  
+- Email Νίκου: nikos@example.com
+- Email Νώντα: nontas@example.com
+- Email Λόρα: loras@example.com
