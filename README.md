@@ -87,11 +87,6 @@ git remote add origin https://github.com/username/eshop-project.git
 git push -u origin main
 ```
 
-📌 Αν το repo σου χρησιμοποιεί `master` αντί για `main`, άλλαξε το τελευταίο σε:
-```bash
-git push -u origin master
-```
-
 ---
 
 ## 📩 Επικοινωνία Ομάδας
