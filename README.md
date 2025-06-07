@@ -1,6 +1,6 @@
 # 🔧 Project Name – Company Website / eShop
 
-## 📌 Περιγραφή
+## 📌 Περιγραφή  
 Πρόκειται για ένα πλήρως λειτουργικό δυναμικό website με δυνατότητα παρουσίασης υπηρεσιών, portfolio, επικοινωνίας και (προαιρετικά) ηλεκτρονικών πωλήσεων. Το project αναπτύσσεται με Flask, SQLAlchemy και HTML/CSS/Bootstrap.
 
 ---
@@ -17,11 +17,11 @@
 
 ## 🚀 Τεχνολογίες
 
-- Python 3.x
-- Flask
-- SQLAlchemy
-- Jinja2 Templates
-- Bootstrap 5
+- Python 3.x  
+- Flask  
+- SQLAlchemy  
+- Jinja2 Templates  
+- Bootstrap 5  
 - SQLite / PostgreSQL (ανάλογα με την εγκατάσταση)
 
 ---
@@ -48,16 +48,48 @@ project/
 
 ---
 
-## 📌 Οδηγίες Εγκατάστασης
+## ⚙️ Εγκατάσταση – Βήμα προς Βήμα
 
 ```bash
 git clone https://github.com/Nikoliadis/Eshop-Project.git
-open terminal
+cd Eshop-Project
 python -m venv venv
-source venv/bin/activate  # ή venv\Scripts\activate στα Windows
-Open PowerShell (as Administrator). Run: powershell Type: Get-ExecutionPolicy And Then Type: Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+venv\Scripts\activate  # ή source venv/bin/activate σε Mac/Linux
+
+# Αν είσαι σε PowerShell και έχει θέμα, τρέξε:
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
 pip install -r requirements.txt
 python run.py
+```
+
+---
+
+## 🚀 Push στο GitHub (manual setup)
+
+```bash
+# 1. Άνοιξε τερματικό μέσα στον φάκελο του project
+cd path\to\Eshop-Project
+
+# 2. Αν δεν έχεις κάνει ακόμα
+git init
+
+# 3. Πρόσθεσε όλα τα αρχεία
+git add .
+
+# 4. Κάνε commit με μήνυμα
+git commit -m "Setup Flask project with models and requirements"
+
+# 5. Σύνδεσε το GitHub repo
+git remote add origin https://github.com/username/eshop-project.git
+
+# 6. Στείλε τα αρχεία
+git push -u origin main
+```
+
+📌 Αν το repo σου χρησιμοποιεί `master` αντί για `main`, άλλαξε το τελευταίο σε:
+```bash
+git push -u origin master
 ```
 
 ---
@@ -66,4 +98,4 @@ python run.py
 
 - Email Νίκου: nikos@example.com  
 - Email Νώντα: nontas@example.com  
-- Email Λόρα: loras@example.com
+- Email Λόρα: loras@example.com  
