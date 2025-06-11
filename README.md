@@ -60,8 +60,8 @@ venv\Scripts\activate  # ή source venv/bin/activate σε Mac/Linux
 # Αν είσαι σε PowerShell και έχει θέμα, τρέξε:
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
-pip flask flask_sqlalchemy flask_login flask_migrate
-python run.py
+pip install flask flask_sqlalchemy flask_login flask_migrate
+python eshop.py
 ```
 
 ---
