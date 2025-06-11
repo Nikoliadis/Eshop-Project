@@ -61,7 +61,7 @@ venv\Scripts\activate  # ή source venv/bin/activate σε Mac/Linux
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 pip install flask flask_sqlalchemy flask_login flask_migrate
-python eshop.py
+python run.py
 ```
 
 ---
