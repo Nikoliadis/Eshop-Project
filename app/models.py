@@ -1,4 +1,5 @@
 from app import db  # ✅ Use the shared db instance from the app
+import uuid
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -6,6 +7,8 @@ class User(db.Model):
     name = db.Column(db.String(100), nullable=False)
     password = db.Column(db.String(128), nullable=False)
     orders = db.relationship('Order', backref='user', lazy=True)
+    is_verified = db.Column(db.Boolean, default=False)
+    verification_token = db.Column(db.String(120), default=lambda: str(uuid.uuid4()))
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
