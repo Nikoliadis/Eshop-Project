@@ -1,0 +1,60 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        nav {
+            display: flex;
+            justify-content: space-between;
+            background: #333;
+            padding: 10px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        .right {
+            margin-left: auto;
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="{{ url_for('main.home') }}">Home</a></li>
+    </ul>
+    <ul class="right">
+        <li><a href="{{ url_for('main.login') }}">Login</a></li>
+        <li><a href="{{ url_for('main.register') }}">Register</a></li>
+    </ul>
+</nav>
+
+<div class="content">
+    {% block content %}{% endblock %}
+</div>
+
+<footer>
+    <p><a href="{{ url_for('main.contact') }}" style="color:white;">Contact Us</a> | 
+       <a href="{{ url_for('main.about') }}" style="color:white;">About</a></p>
+</footer>
+
+</body>
+</html>

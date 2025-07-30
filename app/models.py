@@ -1,7 +1,4 @@
-
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from app import db  # ✅ Use the shared db instance from the app
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
