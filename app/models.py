@@ -7,6 +7,7 @@ class User(db.Model):
     name = db.Column(db.String(100), nullable=False)
     password = db.Column(db.String(128), nullable=False)
     orders = db.relationship('Order', backref='user', lazy=True)
+    is_admin = db.Column(db.Boolean, default=False)
     is_verified = db.Column(db.Boolean, default=False)
     verification_token = db.Column(db.String(120), default=lambda: str(uuid.uuid4()))
 

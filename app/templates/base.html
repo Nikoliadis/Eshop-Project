@@ -41,10 +41,19 @@
     <ul>
         <li><a href="{{ url_for('main.home') }}">Home</a></li>
     </ul>
-    <ul class="right">
+   <ul class="right">
+    {% if session.get('user_id') %}
+        {% if session.get('is_admin') %}
+            <li><a href="{{ url_for('main.admin_panel') }}">🛠️ Admin Panel</a></li>
+        {% endif %}
+        <li><a href="{{ url_for('main.account') }}">🧑 My Account</a></li>
+        <li><a href="{{ url_for('main.logout') }}">Logout</a></li>
+    {% else %}
         <li><a href="{{ url_for('main.login') }}">Login</a></li>
         <li><a href="{{ url_for('main.register') }}">Register</a></li>
-    </ul>
+    {% endif %}
+</ul>
+
 </nav>
 
 <div class="content">

@@ -8,6 +8,9 @@ migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
+    
+
+    app.config['SECRET_KEY'] = 'secret123'
 
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'eshop.db')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

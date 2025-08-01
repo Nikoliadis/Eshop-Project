@@ -3,6 +3,13 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <h1>Καλώς ήρθατε στην Αρχική Σελίδα</h1>
-    <p>Αυτό είναι το βασικό περιεχόμενο της αρχικής σελίδας.</p>
+    {% if user %}
+        <h1>Καλώς ήρθες, {{ user.name }}!</h1>
+        {% if session.is_admin %}
+            <p><a href="{{ url_for('main.admin_panel') }}">Μετάβαση στο Admin Panel</a></p>
+        {% endif %}
+    {% else %}
+        <h1>Καλώς ήρθατε στην Αρχική Σελίδα</h1>
+        <p>Αυτό είναι το βασικό περιεχόμενο της αρχικής σελίδας.</p>
+    {% endif %}
 {% endblock %}
