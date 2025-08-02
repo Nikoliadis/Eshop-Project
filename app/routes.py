@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash,
 from werkzeug.security import generate_password_hash, check_password_hash
 from app.models import db, User
 from itsdangerous import URLSafeTimedSerializer
+from app.utils import send_reset_email
 import re, smtplib
 
 main = Blueprint('main', __name__)
@@ -102,6 +103,37 @@ def login():
             flash("Invalid credentials.")
     return render_template("login.html")
 
+@main.route("/forgot-password", methods=["GET", "POST"])
+def forgot_password():
+    if request.method == "POST":
+        email = request.form.get("email")
+        user = User.query.filter_by(email=email).first()
+
+        if user:
+            send_reset_email(user)
+
+        flash("📨 Αν υπάρχει αυτό το email, στάλθηκε σύνδεσμος επαναφοράς.", "info")
+        return redirect(url_for("main.login"))
+
+    return render_template("forgot_password.html")
+
+@main.route("/reset-password", methods=["GET", "POST"])
+def reset_password():
+    token = request.args.get("token")
+    user = User.query.filter_by(verification_token=token).first()
+
+    if not user:
+        flash("❌ Μη έγκυρο ή ληγμένο token.", "danger")
+        return redirect(url_for("main.login"))
+
+    if request.method == "POST":
+        new_password = request.form.get("password")
+        user.password = generate_password_hash(new_password)
+        db.session.commit()
+        flash("✅ Ο κωδικός άλλαξε επιτυχώς.", "success")
+        return redirect(url_for("main.login"))
+
+    return render_template("reset_password.html")
 
 @main.route("/logout")
 def logout():
