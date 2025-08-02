@@ -43,11 +43,11 @@ def register():
         password = request.form["password"]
 
         if User.query.filter_by(email=email).first():
-            flash("❌ Email already registered. Please log in.")
+            flash("❌ Αυτό το email είναι ήδη καταχωρημένο. Παρακαλώ συνδεθείτε.")
             return redirect(url_for("main.login"))
 
         if not is_password_valid(password):
-            flash("❌ Password must be 8+ characters, no dots/commas, and only letters/symbols.")
+            flash("❌ Ο κωδικός πρέπει να έχει τουλάχιστον 8 χαρακτήρες, χωρίς τελείες/κόμματα και μόνο γράμματα ή σύμβολα.")
             return redirect(url_for("main.register"))
 
         hashed_password = generate_password_hash(password)
@@ -56,7 +56,7 @@ def register():
         db.session.commit()
 
         send_verification_email(email)
-        flash("✅ Registered! Please check your email for verification.")
+        flash("✅ Εγγραφή επιτυχής! Παρακαλώ ελέγξτε το email σας για επιβεβαίωση.")
         return redirect(url_for("main.login"))
 
     return render_template("register.html")
@@ -85,6 +85,11 @@ def login():
         password = request.form.get("password")
 
         user = User.query.filter_by(email=email).first()
+        
+        if not user or not check_password_hash(user.password, password):
+            flash("❌ Το email ή ο κωδικός είναι λάθος.", "danger")
+            return redirect(url_for("main.login"))
+        
         if user and check_password_hash(user.password, password):
             if not user.is_verified:
                 flash("Email not verified.")
